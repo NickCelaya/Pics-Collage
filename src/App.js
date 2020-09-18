@@ -1,17 +1,11 @@
 import React from 'react';
-import logo from './logo.svg';
+import SearchBar from './components/SearchBar';
 import './App.css';
 
 const App = () => {
 	return (
-		<div className='App'>
-			<header className='App-header'>
-				<img src={logo} className='App-logo' alt='logo' />
-				<p>
-					Edit <code>src/App.js</code> and save to reload.
-				</p>
-				<p>Hey Nick!</p>
-			</header>
+		<div className='ui container' style={{ marginTop: '10px' }}>
+			<SearchBar />
 		</div>
 	);
 };
