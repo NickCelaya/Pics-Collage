@@ -21,7 +21,7 @@ class SearchBar extends Component {
 	};
 
 	render() {
-		console.log(this.state.userInput, 'state');
+		console.log(this.state.userInput, 'user input state');
 		return (
 			<div className='ui segment' onSubmit={this.onFormSubmit}>
 				<form className='ui form'>
