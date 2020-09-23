@@ -5,7 +5,7 @@ class SearchBar extends Component {
 		userInput: '',
 	};
 
-	//Captures the users input and is called on the input jsx element
+	//Captures the users input and sets state. is called on the input jsx element
 	onInputChange = (event) => {
 		this.setState({
 			userInput: event.target.value,
@@ -13,11 +13,11 @@ class SearchBar extends Component {
 	};
 
 	onFormSubmit = (event) => {
-		//prevents default submit
+		//prevents default submit when user pushes enter
 		event.preventDefault();
 
-		//passes the users input from state back to the parent component App.js through onSubmit function call on props
-		console.log(this.props.onSubmit(this.state.userInput));
+		//passes the users input from state back to the parent component App.js through onSubmit function call on props from App.js
+		this.props.onSubmit(this.state.userInput);
 	};
 
 	render() {
