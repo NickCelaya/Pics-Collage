@@ -6,18 +6,14 @@ import './App.css';
 class App extends Component {
 	//?query={userInput}
 	//function passed down to SearchBar.js through props to get user input back from SearchBar.js
-	onSearchSubmit = (userInput) => {
-		axios
-			.get('https://api.unsplash.com/search/photos', {
-				params: { query: userInput },
-				headers: {
-					Authorization:
-						'Client-ID 9bDnVwHCHRLoOVnjHjUK-zKCwiUezalAWvyvQVv94pE',
-				},
-			})
-			.then((response) => {
-				console.log(response.data.results, 'hello');
-			});
+	onSearchSubmit = async (userInput) => {
+		const response = await axios.get('https://api.unsplash.com/search/photos', {
+			params: { query: userInput },
+			headers: {
+				Authorization: 'Client-ID 9bDnVwHCHRLoOVnjHjUK-zKCwiUezalAWvyvQVv94pE',
+			},
+		});
+		console.log(response.data.results);
 		console.log(userInput);
 	};
 	render() {
