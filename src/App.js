@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import axios from 'axios';
 import SearchBar from './components/SearchBar';
+import unsplashApiBaseUrl from './api/UnsplashApi';
 import './App.css';
 
 class App extends Component {
@@ -8,11 +8,8 @@ class App extends Component {
 	//?query={userInput}
 	//function passed down to SearchBar.js through props to get user input back from SearchBar.js
 	onSearchSubmit = async (userInput) => {
-		const response = await axios.get('https://api.unsplash.com/search/photos', {
+		const response = await unsplashApiBaseUrl.get(`search/photos`, {
 			params: { query: userInput },
-			headers: {
-				Authorization: 'Client-ID 9bDnVwHCHRLoOVnjHjUK-zKCwiUezalAWvyvQVv94pE',
-			},
 		});
 		console.log(response.data.results, 'im the response');
 		this.setState({ images: response.data.results });
